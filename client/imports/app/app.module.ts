@@ -1,32 +1,20 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { AppComponent } from "./app.component";
-import { DemoComponent } from "./demo/demo.component";
-import { DemoDataService } from "./demo/demo-data.service";
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
 
 @NgModule({
-  // Components, Pipes, Directive
   declarations: [
-    AppComponent,
-    DemoComponent
+    MyApp
   ],
-  // Entry Components
-  entryComponents: [
-    AppComponent
-  ],
-  // Providers
-  providers: [
-    DemoDataService
-  ],
-  // Modules
   imports: [
-    BrowserModule
+    IonicModule.forRoot(MyApp),
   ],
-  // Main Component
-  bootstrap: [ AppComponent ]
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp
+  ],
+  providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
+  ]
 })
-export class AppModule {
-  constructor() {
-
-  }
-}
+export class AppModule {}
